@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>General Aquarium Stocking Estimator | Fish Quantity Guide</title>
+    <meta
+      name="description"
+      content="Calculate a safe fish stocking range for your aquarium based on tank volume and fish category."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      href="./assets/favicon/favicon-48x48.png"
+      type="image/png"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <!--logo section-->
+      <header class="hero">
+        <img
+          class="logo"
+          src="./assets/logo/logo.png"
+          alt="Fish Stocking Logo"
+        />
+        <p>
+          Get a general guide on safe fish stocking numbers based on your tank
+          size.
+        </p>
+      </header>
+
+      <section>
+        <!--calculator section-->
+        <div class="form-group">
+          <label for="unit">Unit System</label>
+          <select id="unit" aria-label="Unit System">
+            <option value="us">Gallons (US)</option>
+            <option value="metric">Liters</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tank-vol">Tank Volume</label>
+          <span class="input-help"
+            >Need to calculate volume?
+            <a href="../aquarium-calculator/index.html"
+              >Use the Volume Calculator</a
+            >.</span
+          >
+          <input
+            type="number"
+            id="tank-vol"
+            placeholder="e.g. 20"
+            min="1"
+            step="1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="fish-category">Fish Type / Bioload Category</label>
+          <select id="fish-category" aria-label="Fish Category">
+            <option value="nano">
+              Community Nanos (e.g., Neon Tetras, Guppies)
+            </option>
+            <option value="medium">
+              Medium Community (e.g., Mollies, Swordtails)
+            </option>
+            <option value="goldfish">Goldfish (Fancies)</option>
+            <option value="cichlid">
+              Large Cichlids (e.g., Oscars, Jack Dempseys)
+            </option>
+          </select>
+        </div>
+
+        <div class="button-row">
+          <button
+            type="button"
+            class="btn-calculate"
+            onclick="estimateStocking()"
+          >
+            Estimate Stocking
+          </button>
+          <button type="button" class="btn-clear" onclick="clearAll()">
+            Clear All
+          </button>
+        </div>
+
+        <div id="result" aria-live="polite"></div>
+      </section>
+
+      <section class="content-glue">
+        <h2>Understanding Stocking Limits</h2>
+        <p>
+          This tool provides a simplified bioload estimation. It is a starting
+          point, not a perfect science. Stocking success depends heavily on
+          filtration strength and your maintenance schedule.
+        </p>
+
+        <h3>The Two Golden Rules</h3>
+        <ul>
+          <li>
+            <strong>Filtration is King:</strong> An overstocked tank with a
+            powerful canister filter and weekly water changes can succeed, while
+            a lightly stocked tank with poor filtration and low maintenance can
+            fail.
+          </li>
+          <li>
+            <strong>Observation:</strong> Always prioritize observing your fish
+            for signs of stress or aggression over any general guideline.
+          </li>
+        </ul>
+
+        <h3>Why These Numbers Matter</h3>
+        <p>
+          Overstocking leads to rapid nitrate and ammonia buildup, stunted
+          growth, increased stress, and disease. It's always better to start
+          conservatively.
+        </p>
+      </section>
+
+      <footer class="footer-note">
+        Perfect for hobbyists, aquascapers, and beginner tank builders.
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
